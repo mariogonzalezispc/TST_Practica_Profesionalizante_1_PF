@@ -1,0 +1,82 @@
+plugins {
+	id 'java'
+	id 'idea'
+	id 'eclipse'
+	id 'jacoco'
+	id "org.springframework.boot" version "2.4.5"
+	id 'io.spring.dependency-management' version "1.0.8.RELEASE"
+}
+
+defaultTasks 'clean', 'test', 'jacocoTestReport'
+
+compileJava.options.encoding = 'UTF-8'
+group = 'iot_hub'
+version = '1.0.0'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+buildDir = 'build'
+
+repositories {
+	jcenter()
+}
+
+dependencies {
+	implementation(
+		'org.apache.httpcomponents:fluent-hc:4.5.9',
+		'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.2',
+		'org.springframework.boot:spring-boot-starter-web',
+		files('lib/sqlite-jdbc-3.32.3.2.jar'))
+	testImplementation('junit:junit:4.12')
+}
+
+sourceSets {
+	main {
+		java {
+			srcDirs = ['src/main/java']
+		}
+		resources {
+			srcDirs = ['src/main/resources']
+		}
+	}
+
+	test {
+		java {
+			srcDirs = ['src/test/java']
+		}
+		resources {
+			srcDirs = ['src/test/resources']
+		}
+	}
+}
+
+task iot_sim(type: JavaExec, dependsOn: [test, jacocoTestReport]) {
+	classpath sourceSets.main.runtimeClasspath
+	main = 'iot_sim.Main'
+	if (project.hasProperty("config"))
+		args project.getProperty('config')
+}
+
+task iot_sim_ex(type: JavaExec, dependsOn: [test, jacocoTestReport]) {
+	classpath sourceSets.main.runtimeClasspath
+	main = 'iot_sim.Main'
+	args 'simConfigEx.json'
+}
+
+task iot_hub(type: JavaExec, dependsOn: [test, jacocoTestReport]) {
+	classpath sourceSets.main.runtimeClasspath
+	main = 'iot_hub.Main'
+}
+
+6.times { proj ->
+	task "integration_$proj"(type: JavaExec) {
+		classpath sourceSets.test.runtimeClasspath
+		main = "integration.Integration_$proj"
+	}
+}
+
+task test_integration(dependsOn: [integration_1,integration_2,integration_3,integration_4,integration_5]) {
+}
+
+jacoco {
+	toolVersion = '0.8.7'
+}

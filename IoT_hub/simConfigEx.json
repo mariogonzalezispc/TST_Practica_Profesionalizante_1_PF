@@ -1,0 +1,10 @@
+{
+  "httpPort": 8081,
+  "plugNames": [
+    "x",
+    "y",
+    "z"],
+  "mqttBroker": "tcp://brokergrupo6.ddns.net:1883",
+  "mqttClientId": "iot_sim_ex",
+  "mqttTopicPrefix": "iot_network"
+}
