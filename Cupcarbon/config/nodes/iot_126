@@ -1,0 +1,12 @@
+List of parameters
+------------------------------------------
+device_type:13
+device_id:126
+device_longitude:-64.2645263671875
+device_latitude:-31.503630522610518
+device_elevation:0.0
+device_radius:0.0
+device_hide:0
+device_draw_battery:false
+device_sensor_unit_radius:20.0
+device_script_file_name:Ruta-5-Tablero-04.py

@@ -1,0 +1,19 @@
+CupCarbon v. IoT 5.0
+----------------
+name:MarioGonzalez_TP2.cup
+zoom:8
+centerposition_la:-31.59059049679741
+centerposition_lo:-64.32689309120178
+map:0
+display_details:true
+draw_radio_links:true
+draw_sensor_arrows:false
+radio_links_color:3
+draw_marker_arrows:false
+display_rl_distance:true
+propagation:false
+display_marker_distance:false
+display_radio_messages:false
+draw_script_file_name:true
+display_print_messages:true
+display_all_routes:false
