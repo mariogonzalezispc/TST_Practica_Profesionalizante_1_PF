@@ -8,7 +8,7 @@ import iot_sim.SimConfig;
 import iot_sim.Main;
 
 public class Integration_2 {
-	private static final String broker = "tcp://127.0.0.1";
+	private static final String broker = "tcp://brokergrupo6.ddns.net:1883";
 	private static final String topicPrefix = System.currentTimeMillis()+"/integration_2/iot_hub";
 
 	public static void main(String[] args) throws Exception {
