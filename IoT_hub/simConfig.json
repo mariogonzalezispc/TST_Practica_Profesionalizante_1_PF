@@ -1,11 +1,11 @@
 {
   "httpPort": 8084,
   "plugNames": [
-    "Wi-Fi Router",
-    "Air purifier",
-    "TV",
-    "Consoles",
-    "Coffee maker",
+    "Luminaria01",
+    "Luminaria02",
+    "Luminaria03",
+    "Luminaria04",
+    "Luminaria05",
     "Dog feeder",
     "Crockpot",
     "Hi-Fi system",

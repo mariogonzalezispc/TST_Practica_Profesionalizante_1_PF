@@ -31,7 +31,7 @@ public class App {
 
 	@Bean
 	public DatabaseController databaseController(@Value("${database.fileName}") String databaseFileName) {
-		File dataDir = new File("C:\\Gradle\\IoT_hub\\data");
+		final File dataDir = new File("./IoT_hub/data/");
 		if (!dataDir.exists()){
 			dataDir.mkdirs();
 		}

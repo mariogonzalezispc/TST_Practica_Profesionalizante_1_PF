@@ -62,11 +62,11 @@ public class GroupsResourceTests {
     public GroupsResourceTests() throws Exception{
         this.mqtt = new MqttController(broker, "unit_tester/PlugsModel", topicPrefix);
         this.plugs = new PlugsModel(this.mqtt.client, topicPrefix, null);
-        File dataDir = new File("./data");
+        File dataDir = new File("C:/ISPC/TST/TST_Practica_Profesionalizante_1_PF/IoT_hub/data");
 		if (!dataDir.exists()){
 			dataDir.mkdirs();
 		}
-        this.databaseController = new DatabaseController("./data/GroupsResourceTests.db");
+        this.databaseController = new DatabaseController("C:/ISPC/TST/TST_Practica_Profesionalizante_1_PF/IoT_hub/data/GroupsResourceTests.db");
         this.groups = new GroupsModel(plugs, this.databaseController);
         this.groupsRes = new GroupsResource(groups);
     }
